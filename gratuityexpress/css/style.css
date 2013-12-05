@@ -1,0 +1,98 @@
+body {
+	padding-top: 10px;
+	font-weight: 300;
+}
+
+a, a:visited, a:active {
+	color: #c55c2d;
+}
+
+a:hover {
+	color: #ffa680;
+	text-decoration: none;
+}
+
+@media (min-width: 768px) {
+	.linkButtons {
+		padding: 0;
+		margin: 0 auto;
+		text-align: center;
+	}
+	ul.linkButtons li {
+		display: inline;
+		list-style-type: none;
+		padding: 0 20px;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.linkButtons {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+}
+
+ul.linkButtons li h4 {
+	display: inline-block;
+}
+ul.linkButtons li h4 a {
+	display: block;
+}
+
+.main-logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.heading {
+	font-family: 'Josefin Sans', sans-serif;
+}
+.subheading {
+	margin-bottom: 30px; 
+	margin-top: 30px;
+	text-align: center;
+}
+
+.subheading h4 {
+	font-weight: 300;
+}
+
+.marketting {
+}
+
+.marketting-image {
+	display: inline-block;
+	height: auto;
+	width: 200px;
+	margin: 10px 40px;
+}
+
+@media (max-width: 767px) {
+	.marketting-image.visible-xs {
+		display: inline-block !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.marketting-image.hidden-xs {
+		display: inline-block !important;
+	}
+}
+
+.marketting-text {
+	width: 70%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.footer {
+	margin-top: 30px;
+}
+
+.footer p {
+	font-size: 0.8em;
+}
