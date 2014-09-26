@@ -1,4 +1,4 @@
-body {
+/*body {
 	padding-top: 10px;
 	font-weight: 300;
 }
@@ -23,10 +23,10 @@ a:hover {
 		list-style-type: none;
 		padding: 0 20px;
 	}
-}
+}*/
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
 	.linkButtons {
 		list-style-type: none;
 		padding: 0;
@@ -95,4 +95,4 @@ ul.linkButtons li h4 a {
 
 .footer p {
 	font-size: 0.8em;
-}
+}*/
