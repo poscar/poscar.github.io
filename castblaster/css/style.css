@@ -3,14 +3,7 @@
 	font-weight: 300;
 }
 
-a, a:visited, a:active {
-	color: #c55c2d;
-}
 
-a:hover {
-	color: #ffa680;
-	text-decoration: none;
-}
 
 @media (min-width: 768px) {
 	.linkButtons {
@@ -96,3 +89,55 @@ ul.linkButtons li h4 a {
 .footer p {
 	font-size: 0.8em;
 }*/
+body {
+	color: #EEE;
+	background: #333;
+}
+
+a, a:visited, a:active {
+	color: #A666C7;
+	text-decoration: none;
+	-webkit-transition: color 0.2s ease;
+	-moz-transition: color 0.2s ease;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: #8942AD;
+	text-decoration: none;
+}
+
+.github-link {
+	text-align: right;
+	display: block;
+}
+
+.main-logo {
+	margin: 0 auto;
+	display: block;
+}
+
+.main-header {
+	text-align: center;
+}
+
+.subheading {
+	text-align: center;
+}
+
+.marketting-image {
+	margin: 0 auto;
+	display: block;
+}
+
+.footer {
+	text-align: center;
+}
+
+.download {
+	text-align: center;
+}
+
+.download a {
+	margin: 0 60px;
+}
