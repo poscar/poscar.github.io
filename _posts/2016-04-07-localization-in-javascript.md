@@ -70,8 +70,8 @@ Most web apps rely heavily on JavaScript to populate and modify the DOM. L20n pr
 ```js
 // formatValues example
 document.l10n.formatValues('websiteIndexHeader', ['websiteIndexFooter', {year: '2016', name: 'John Doe'}]).then(function (strings) {
-  console.log('header: %s', strings[0]);
-  console.log('footer: %s', strings[1]);
+  console.log('header: ' + strings[0]);
+  console.log('footer: ' + strings[1]);
 });
 
 // setAttributes example
@@ -108,12 +108,12 @@ var spanishContext = l20nEnv.createContext([{code: 'es'}], l20nFiles);
 
 // Display english string.
 englishContext.formatValues('serverWelcomeText').then(function (translatedStrings) {
-  console.log('english: %s', translatedStrings[0]);
+  console.log('english: ' + translatedStrings[0]);
 });
 
 // Display spanish string.
 spanishContext.formatValues('serverWelcomeText').then(function (translatedStrings) {
-  console.log('spanish: %s', translatedStrings[0]);
+  console.log('spanish: ' + translatedStrings[0]);
 });
 ```
 
