@@ -19,7 +19,7 @@ has been discontinued, Mozilla has kept developing and improving L20n. In this p
 
 L20n makes it easy to localize websites and single page apps. To start using L20n, simply include the library, set the default language, and include your language files. Here's an example:
 
-```
+```html
 <html>
   <head>
     <meta name="defaultLanguage" content="en-US">
@@ -31,14 +31,15 @@ L20n makes it easy to localize websites and single page apps. To start using L20
   <body>
     <h1 data-l10n-id="websiteIndexHeader"></h1>
     <p data-l10n-id="websiteIndexParagraph"></p>
-    <p data-l10n-id="websiteIndexFooter" data-l10n-args="{\"year\":\"2016\", \"name\":\"John Doe\"}"></p>
+    <p data-l10n-id="websiteIndexFooter" data-l10n-args='{"year":"2016", "name":"John Doe"}'></p>
   </body>
 </html>
 ```
 
 The syntax of L20n files looks as follows (this is an example of a Polish translation from the L20n repo):
 
-```
+{% raw %}
+```text
 <brandName {
   nominative: "Firefox",
   genitive: "Firefoksa",
@@ -50,20 +51,23 @@ The syntax of L20n files looks as follows (this is an example of a Polish transl
 <about "O {{ brandName.locative }}">
 <preferences "Preferencje {{ brandName.genitive }}">
 ```
+{% endraw %}
 
 You can tinker with L20n live [here](http://l20n.github.io/tinker/).
 
 For the HTML example we showed above, a simple L20n file would look as follows:
 
-```
+{% raw %}
+```text
 <websiteIndexHeader "Welcome to My Website">
 <websiteIndexParagraph "This is the text in the welcoming paragraph for my awesome website.">
-<websiteIndexFooter "(c) {{ $year }} {{ $name }}">
+<websiteIndexFooter "© {{ $year }} {{ $name }}">
 ```
+{% endraw %}
 
 Most web apps rely heavily on JavaScript to populate and modify the DOM. L20n provides the **document.l10n.formatValues** and **document.l10n.setAttributes** APIs. The **formatValues** API allows us to get translated strings directly. The **setAttribuets** API allows us to set the data-l10n-id and data-l10n-args attributes on a DOM element. We can use these APIs as follows:
 
-```
+```js
 // formatValues example
 document.l10n.formatValues('websiteIndexHeader', ['websiteIndexFooter', {year: '2016', name: 'John Doe'}]).then(function (strings) {
   console.log('header: %s', strings[0]);
@@ -77,7 +81,7 @@ document.l10n.setAttributes(element, 'websiteIndexFooter', {year: '2016', name: 
 
 If you're using JQuery, you could use a plugin like the one shown in the snippet below. This plugin allows you to set localization attributes directly on JQuery objects:
 
-```
+```js
 $.fn.setL10nData = function (id, args) {
   return this.each(function () {
     document.l10n.setAttributes(this, id, args);
@@ -87,7 +91,7 @@ $.fn.setL10nData = function (id, args) {
 
 On the server side, L20n provides an API that can be used from NodeJS. Here's an example for translating some text using the L20n [module](https://www.npmjs.com/package/l20n)):
 
-```
+```js
 var l20n = require('l20n');
 
 // Initialize l20n environment.
