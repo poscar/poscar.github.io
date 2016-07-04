@@ -52,67 +52,51 @@ In order to get everything working I had to use gcc from [MacPorts](http://www.m
 
 1. Install gcc from MacPorts:
 
-	```
-	$ sudo ports install gcc48
-	```
+	``` $ sudo ports install gcc48 ```
 
 2. Install Libav dependencies if you haven't done so already:
 
-	```
-	$ sudo port install yasm zlib bzip2 faac lame speex libogg libvorbis libtheora libvpx x264 XviD openjpeg15 opencore-amr freetype
-	```
+	``` $ sudo port install yasm zlib bzip2 faac lame speex libogg libvorbis libtheora libvpx x264 XviD openjpeg15 opencore-amr freetype ```
 
 3. Configure Libav with the following command:
 
-	```
-	$ ./configure --enable-gpl --enable-libx264 --enable-libxvid --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-nonfree --enable-libmp3lame --enable-libspeex --enable-libvorbis --enable-libtheora --enable-libvpx --enable-libopenjpeg --enable-libfreetype --enable-doc --enable-static --disable-shared --prefix=BUILD/ --extra-cflags="/opt/local/lib/*.a" --extra-ldflags="-static-libgcc /opt/local/lib/*.a" --cc=/opt/local/bin/gcc-mp-4.8
-	```
+	``` $ ./configure --enable-gpl --enable-libx264 --enable-libxvid --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-nonfree --enable-libmp3lame --enable-libspeex --enable-libvorbis --enable-libtheora --enable-libvpx --enable-libopenjpeg --enable-libfreetype --enable-doc --enable-static --disable-shared --prefix=BUILD/ --extra-cflags="/opt/local/lib/*.a" --extra-ldflags="-static-libgcc /opt/local/lib/*.a" --cc=/opt/local/bin/gcc-mp-4.8 ```
 
 4. Build Libav
 
-	```
-	$ make && make install
-	```
+	``` $ make && make install ```
 
 5. Verify linking
 
-	```
-	$ otool -L BUILD/avconv
-	```
+	``` $ otool -L BUILD/avconv ```
 
 	This will show that the binaries are still being linked against dynamic libraries:
 
-	```
-	/opt/local/lib/libxvidcore.4.dylib (compatibility version 4.0.0, current version 4.3.0)
-	/opt/local/lib/libx264.142.dylib (compatibility version 0.0.0, current version 0.0.0)
-	/opt/local/lib/libvorbisenc.2.dylib (compatibility version 3.0.0, current version 3.10.0)
-	/opt/local/lib/libvorbis.0.dylib (compatibility version 5.0.0, current version 5.7.0)
-	/opt/local/lib/libogg.0.dylib (compatibility version 9.0.0, current version 9.1.0)
-	/opt/local/lib/libtheoraenc.1.dylib (compatibility version 3.0.0, current version 3.2.0)
-	/opt/local/lib/libtheoradec.1.dylib (compatibility version 3.0.0, current version 3.4.0)
-	/opt/local/lib/libspeex.1.dylib (compatibility version 7.0.0, current version 7.0.0)
-	/opt/local/lib/libopenjpeg.1.dylib (compatibility version 7.0.0, current version 7.0.0)
-	/opt/local/lib/libopencore-amrwb.0.dylib (compatibility version 1.0.0, current version 1.3.0)
-	/opt/local/lib/libopencore-amrnb.0.dylib (compatibility version 1.0.0, current version 1.3.0)
-	/opt/local/lib/libmp3lame.0.dylib (compatibility version 1.0.0, current version 1.0.0)
-	/opt/local/lib/libfreetype.6.dylib (compatibility version 18.0.0, current version 18.2.0)
-	/opt/local/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.6)
-	/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
-	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
-	```
+	``` /opt/local/lib/libxvidcore.4.dylib (compatibility version 4.0.0, current version 4.3.0)
+/opt/local/lib/libx264.142.dylib (compatibility version 0.0.0, current version 0.0.0)
+/opt/local/lib/libvorbisenc.2.dylib (compatibility version 3.0.0, current version 3.10.0)
+/opt/local/lib/libvorbis.0.dylib (compatibility version 5.0.0, current version 5.7.0)
+/opt/local/lib/libogg.0.dylib (compatibility version 9.0.0, current version 9.1.0)
+/opt/local/lib/libtheoraenc.1.dylib (compatibility version 3.0.0, current version 3.2.0)
+/opt/local/lib/libtheoradec.1.dylib (compatibility version 3.0.0, current version 3.4.0)
+/opt/local/lib/libspeex.1.dylib (compatibility version 7.0.0, current version 7.0.0)
+/opt/local/lib/libopenjpeg.1.dylib (compatibility version 7.0.0, current version 7.0.0)
+/opt/local/lib/libopencore-amrwb.0.dylib (compatibility version 1.0.0, current version 1.3.0)
+/opt/local/lib/libopencore-amrnb.0.dylib (compatibility version 1.0.0, current version 1.3.0)
+/opt/local/lib/libmp3lame.0.dylib (compatibility version 1.0.0, current version 1.0.0)
+/opt/local/lib/libfreetype.6.dylib (compatibility version 18.0.0, current version 18.2.0)
+/opt/local/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.6)
+/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
+/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1) ```
 
 6. We need to move out the third party .dylib files from their locations so that the linker doesn't pick them up. Don't forget to move them back once you're done:
 
-	```
-	$ sudo mkdir /sharedlibs
-	$ sudo mv /opt/local/lib/libxvidcore.*.dylib /opt/local/lib/libx264.*.dylib /opt/local/lib/libvorbisenc.*.dylib /opt/local/lib/libvorbis.*.dylib /opt/local/lib/libogg.*.dylib /opt/local/lib/libtheoraenc.*.dylib /opt/local/lib/libtheoradec.*.dylib /opt/local/lib/libspeex.*.dylib /opt/local/lib/libopenjpeg.*.dylib /opt/local/lib/libopencore-amrwb.*.dylib /opt/local/lib/libopencore-amrnb.*.dylib /opt/local/lib/libmp3lame.*.dylib /opt/local/lib/libfreetype.*.dylib /opt/local/lib/libbz2.*.dylib /opt/local/lib/libz.*.dylib /sharedlibs/
-	```
+	``` $ sudo mkdir /sharedlibs
+$ sudo mv /opt/local/lib/libxvidcore.*.dylib /opt/local/lib/libx264.*.dylib /opt/local/lib/libvorbisenc.*.dylib /opt/local/lib/libvorbis.*.dylib /opt/local/lib/libogg.*.dylib /opt/local/lib/libtheoraenc.*.dylib /opt/local/lib/libtheoradec.*.dylib /opt/local/lib/libspeex.*.dylib /opt/local/lib/libopenjpeg.*.dylib /opt/local/lib/libopencore-amrwb.*.dylib /opt/local/lib/libopencore-amrnb.*.dylib /opt/local/lib/libmp3lame.*.dylib /opt/local/lib/libfreetype.*.dylib /opt/local/lib/libbz2.*.dylib /opt/local/lib/libz.*.dylib /sharedlibs/ ```
 
 7. Repeat steps **3**, **4**, and **5**.  The otool output should no longer contain third party .dylib dependencies:
 
-	```
-	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
-	```
+	``` /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1) ```
 
 If you don't want to build Libav yourself, download it here:
 
