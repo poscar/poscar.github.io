@@ -1,1 +1,5 @@
 name: Oscar A. Perez
+twitter:
+  username: oscrperez
+gems:
+  - jekyll-seo-tag
