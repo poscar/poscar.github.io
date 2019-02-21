@@ -3,6 +3,10 @@
 /* Common
 /*
 /*****************************************************************************/
+.container {
+  padding-top: 65px;
+}
+
 .row {
   margin: auto; !important
 }
@@ -40,6 +44,7 @@
 
 .site h2 {
   font-size: 2.25em;
+  line-height: 1.1em;
 }
 
 .header a {
