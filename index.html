@@ -1,97 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Oscar A. Perez</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700' rel='stylesheet' type='text/css'>
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <title>Oscar A. Perez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700' rel='stylesheet' type='text/css'>
+  <link href="https://use.fontawesome.com/releases/v5.7.1/css/brands.css" rel="stylesheet" integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
+  <link href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css" rel="stylesheet" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+  <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Person",
+        "name": "Oscar A. Perez",
+        "jobTitle": "Software Engineer",
+        "url": "https://oscaraperez.com/"
+    }
+  </script>
 </head>
 <body>
-	<div class="navbar navbar-default" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/">Oscar A. Perez</a>
-		</div>
+  <nav id="navbar">
+    <a href="#about" id="navbar-logo" class="wide-screen">Oscar A. Perez</a>
+    <a href="#about" id="navbar-logo" class="narrow-screen">Oscar</a>
+    <div id="navbar-items">
+      <a href="#projects">Projects</a>
+      <a href="#posts">Posts</a>
+      <a href="#talks">Talks</a>
+    </div>
+  </nav>
+  <section class="anchor" id="about">
+    <h1>About</h1>
+    <div class="section-content">
+      <p>Hi :)</p>
+      <p>I am a Software Engineer in the northeast United States. I enjoy building quality products and helping grow successful teams.</p>
+      <div class="external-links">
+        <div class="external-link"><span class="icon fab fa-github"></span><a href="https://github.com/poscar">github.com/poscar</a></div>
+        <div class="external-link"><span class="icon fab fa-linkedin-in"></span><a href="https://www.linkedin.com/in/oscrperez">linkedin.com/in/oscrperez</a></div>
+        <div class="external-link"><span class="icon fab fa-twitter"></span><a href="https://twitter.com/oscrperez">twitter.com/oscrperez</a></div>
+        <div class="external-link"><span class="icon fab fa-instagram"></span><a href="https://www.instagram.com/oscrperez">instagram.com/oscrperez</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="anchor" id="projects">
+    <h1>Projects</h1>
+    <div class="section-content">
+      <div class="project">
+          <a href="https://github.com/poscar/tensorflow-js-intro">TensorFlow.js Intro</a><br />
+          Introduction to TensorFlow.js by building a web app that is able to recognize hand drawn digits in a Canvas element. Created for the Fullstack meetup in NYC on June 14th, 2018.
+      </div>
+      <div class="project">
+        <a href="https://appsto.re/us/OWVZ5.i">UpCheck</a><br />
+        iOS and Apple Watch app to check the state of any server and get notified when it's not reachable.
+      </div>
+      <div class="project">
+        <a href="/gratuityexpress">Gratuity Express</a><br />
+        iOS app to help you quickly figure out the gratuity based on the service you receive.
+      </div>
+    </div>
+  </section>
+  <section class="anchor" id="posts">
+    <h1>Posts</h1>
+    <div class="section-content">
+      <div class="post">
+        <span>29 Aug 2017</span> &raquo;
+        <a href="https://technology.condenast.com/story/the-why-and-how-of-google-amp-at-conde-nast">The Why and How of Google AMP at Condé Nast</a>
+      </div>
+      <div class="post">
+        <span>07 Apr 2016</span> &raquo;
+        <a href="/2016/04/07/localization-in-javascript.html">Localization in JavaScript</a>
+      </div>
+      <div class="post">
+        <span>17 Oct 2014</span> &raquo;
+        <a href="/2014/10/17/purging-files-from-git-history.html">Purging Files from Git History</a>
+      </div>
+      <div class="post">
+          <span>02 Jul 2014</span> &raquo;
+        <a href="/2014/07/02/statically-compile-libav-for-mac.html">Statically Compile Libav for Mac OS X</a>
+      </div>
+      <div class="post">
+        <span>24 Apr 2014</span> &raquo;
+        <a href="/2014/04/24/javascript-in-ios7.html">JavaScript in iOS7</a>
+      </div>
+      <div class="post">
+        <span>14 Nov 2013</span> &raquo;
+        <a href="/2013/11/14/why-you-should-always-use-mongodb.html">Why You Should Always Use MongoDB</a>
+      </div>
+    </div>
+  </section>
+  <section class="anchor" id="talks">
+    <h1>Talks</h1>
+    <div class="section-content">
+        <div class="talk">
+            <span>14 Jun 2018</span> &raquo;
+          <a href="https://www.youtube.com/watch?v=WsFaWkGisBU">Machine Learning with TensorFlow.js</a>
+        </div>
+        <div class="talk">
+          <span>27 Sep 2017</span> &raquo;
+          <a href="https://www.youtube.com/watch?v=DH2cAxhLsT0">Brown Bag: Content Distribution</a>
+        </div>
+        <div class="talk">
+          <span>27 Sep 2017</span> &raquo;
+          <a href="https://thescene.com/watch/builtwhileflying/brown-bag-september-2016">Brown Bag: Google AMP</a>
+        </div>
+    </div>
+  </section>
+  <footer>
+    &copy; Oscar A. Perez - <a href="privacy.html">Privacy Policy</a>
+  </footer>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		<div class="navbar-collapse collapse" id="main-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="/posts.html">Blog</a></li>
-				<li><a href="/gratuityexpress">Gratuity Express</a></li>
-				<li><a href="https://appsto.re/us/OWVZ5.i">UpCheck</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="text-center">
-				<div id="header">
-					<p class="lead">Hello.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<div id="about">
-					<h3>About</h3>
-					<p>
-						Software developer, engineer. I enjoy making things, drinking coffee, and working out.
-					</p>
-					<p>
-						<a href="https://github.com/poscar">github.com/poscar</a><br />
-						<a href="https://twitter.com/oscrperez">twitter.com/oscrperez</a><br />
-					</p>
-				</div>
-				<div id="projects">
-					<h3>Projects</h3>
-					<div class="project">
-						<p>
-							<a href="/gratuityexpress">Gratuity Express</a><br />
-							iOS app to help you quickly figure out the gratuity based on the service you receive.
-						</p>
-					</div>
-					<div class="project">
-						<p>
-							<a href="https://appsto.re/us/OWVZ5.i">UpCheck</a><br />
-							iOS and Apple Watch app to check the state of any server and get notified when it's not reachable.
-						</p>
-					</div>
-					<div class="project">
-						<p>
-							<a href="https://github.com/poscar/FrontPanelAudioToggle">Front Panel Audio Toggle</a><br />
-							GNOME Shell extension that allows front panel audio to be toggled from the shell's audio menu.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div id="contact">
-					<h3 class="tweets_header">Tweets</h3>
-					<a href="https://twitter.com/oscrperez" class="twitter-follow-button" style="display: inline-block;" data-show-count="false">Follow @oscrperez</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					<a class="twitter-timeline" href="https://twitter.com/oscrperez" data-widget-id="321490143297019904" data-chrome="noheader">Tweets by @oscrperez</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-					</script>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-40495183-1', 'oscaraperez.com');
-	  ga('send', 'pageview');
-	</script>
+    ga('create', 'UA-40495183-1', 'oscaraperez.com');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>

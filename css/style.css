@@ -1,4 +1,96 @@
-.tweets_header {
-	display: inline-block;
-	margin-right: 15px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #333333;
+  background-color: #ffffff;
+  line-height: 1.3em;
+}
+
+section,
+section .section-content,
+footer {
+  margin: 0 15px;
+}
+
+footer {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+
+.anchor {
+  padding-top: 65px;
+}
+
+.anchor:last-of-type {
+  padding-bottom: 65px;
+}
+
+.project, .post, .talk, .external-link {
+  margin: 10px 0;
+}
+
+.external-link .icon {
+  padding-right: 10px;
+  font-size: 26px;
+}
+
+.external-link .icon,
+.external-link a {
+  vertical-align: middle;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #f8f8f8;
+  border-bottom: 3px solid #e7e7e7;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+#navbar a {
+  float: left;
+  color: #777777;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  line-height: 25px;
+}
+
+#navbar a:hover {
+  color: #1b1b1b;
+}
+
+#navbar-logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#navbar-items {
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .wide-screen {
+    display: none;
+  }
+}
+@media (min-width: 601px) {
+  .narrow-screen {
+    display: none;
+  }
 }
