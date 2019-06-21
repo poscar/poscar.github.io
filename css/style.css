@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 1.1em;
   color: #333333;
   background-color: #ffffff;
   line-height: 1.3em;
@@ -43,7 +43,7 @@ a:hover, a:focus {
 
 .external-link .icon {
   padding-right: 10px;
-  font-size: 26px;
+  font-size: 1.5em;
 }
 
 .external-link .icon,
@@ -68,7 +68,6 @@ a:hover, a:focus {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  line-height: 25px;
 }
 
 #navbar a:hover {
@@ -76,12 +75,12 @@ a:hover, a:focus {
 }
 
 #navbar-logo {
-  font-size: 25px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 #navbar-items {
-  font-size: 18px;
+  font-size: 1.1em;
 }
 
 @media (max-width: 600px) {
