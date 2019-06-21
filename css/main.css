@@ -37,7 +37,8 @@
 
 .site {
   font-size: 1.25em;
-  margin: 2em 1em;
+  margin: 2em auto;
+  padding: 0 1em;
   line-height: 1.5em;
   max-width: 640px;
 }
@@ -124,8 +125,6 @@
   padding: 0 .4em;
   word-wrap: normal;
   overflow: auto;
-  margin-top: 0.5em;
-  margin-bottom: 2.25em;
 }
 
 .post ul, .post ol {
