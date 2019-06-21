@@ -37,7 +37,7 @@
 
 .site {
   font-size: 1.25em;
-  margin: 3em auto 2em;
+  margin: 2em 1em;
   line-height: 1.5em;
   max-width: 640px;
 }
@@ -45,6 +45,7 @@
 .site h2 {
   font-size: 2.25em;
   line-height: 1.1em;
+  margin: 0;
 }
 
 .header a {
@@ -74,6 +75,7 @@
 
 .meta {
   color: #aaa;
+  margin: 1.25em auto;
 }
 
 .footer {
