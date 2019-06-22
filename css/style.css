@@ -9,9 +9,10 @@ body {
 }
 
 section,
-section .section-content,
 footer {
-  margin: 0 15px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 1em;
 }
 
 footer {
