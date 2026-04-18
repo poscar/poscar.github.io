@@ -128,6 +128,6 @@ Feature Stores deliver centralized access to curated features which accelerate M
 
 Send feedback and comments to the author: [@oscrperez](https://twitter.com/oscrperez). For more about Condé Nast Technology follow [@CondeNastTech](https://twitter.com/CondeNastTech).
 
-### Citations
+## Citations
 
 1 Jeremy Hermann and Mike Del Balso (2017, September 5). Meet Michelangelo: Uber’s Machine Learning Platform [Blog post]. Retrieved from https://eng.uber.com/michelangelo/
