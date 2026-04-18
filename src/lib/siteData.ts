@@ -14,16 +14,6 @@ export const projects = [
     description:
       'Introduction to TensorFlow.js by building a web app that recognizes hand-drawn digits in a canvas element. Created for the Fullstack meetup in NYC on June 14th, 2018.',
   },
-  {
-    href: 'https://appsto.re/us/OWVZ5.i',
-    title: 'UpCheck',
-    description: 'iOS and Apple Watch app to check the state of any server and get notified when it is not reachable.',
-  },
-  {
-    href: '/gratuityexpress',
-    title: 'Gratuity Express',
-    description: 'iOS app to help you quickly figure out the gratuity based on the service you receive.',
-  },
 ];
 
 export const externalPosts = [

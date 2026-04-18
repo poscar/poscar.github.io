@@ -17,6 +17,6 @@ Gratuity Express 1.5 has been released.
 
 <img class="center-block" alt="Gratuity Express 1.5 Main Screen" src="/blog_assets/iPhone5-Main_s1.png" width="194" height="416" />
 
-Check out the [Gratuity Express site](http://oscaraperez.com/gratuityexpress/) to see all the features.  Get Gratuity Express 1.5 Free in the [App Store](https://itunes.apple.com/us/app/gratuity-express-tip-calculator/id593425970)!
+Get Gratuity Express 1.5 Free in the [App Store](https://itunes.apple.com/us/app/gratuity-express-tip-calculator/id593425970)!
 
 The next release will include iOS 7 support which brings extensive design and layout changes. Send any feedback on Twitter [@oscrperez](https://twitter.com/oscrperez).

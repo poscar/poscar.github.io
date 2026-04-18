@@ -7,7 +7,7 @@ published: true
 meta:
   _edit_last: '1'
 ---
-We recently released Gratuity Express 2.0, fully embracing the iOS 7 look and feel. Jump over to the [Gratuity Express site](http://oscaraperez.com/gratuityexpress/) to see all the features.
+We recently released Gratuity Express 2.0, fully embracing the iOS 7 look and feel.
 
 <img class="center-block" alt="Gratuity Express 2.0 Question Screen" src="/blog_assets/iPhone5-Questions_s.png" width="204" height="439" />
 
