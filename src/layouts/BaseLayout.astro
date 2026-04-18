@@ -1,0 +1,88 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  navVariant?: 'home' | 'inner';
+}
+
+const {
+  title,
+  description = 'Oscar A. Perez personal website and blog.',
+  navVariant = 'inner',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9X4F2P4TM8"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-9X4F2P4TM8');
+    </script>
+
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl.toString()} />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.7.1/css/brands.css"
+      rel="stylesheet"
+      integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css"
+      rel="stylesheet"
+      integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+"
+      crossorigin="anonymous"
+    />
+    <link href="/css/normalize.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <slot name="head" />
+  </head>
+  <body>
+    {
+      navVariant === 'home' ? (
+        <nav id="navbar">
+          <a href="#about" id="navbar-logo" class="wide-screen">
+            Oscar A. Perez
+          </a>
+          <a href="#about" id="navbar-logo" class="narrow-screen">
+            Oscar
+          </a>
+          <div id="navbar-items">
+            <a href="#projects">Projects</a>
+            <a href="#posts">Posts</a>
+            <a href="#talks">Talks</a>
+          </div>
+        </nav>
+      ) : (
+        <nav id="navbar">
+          <a href="/index.html" id="navbar-logo">
+            Home
+          </a>
+        </nav>
+      )
+    }
+
+    <slot />
+
+    <footer>
+      &copy; Oscar A. Perez — <a href="/privacy.html">Privacy Policy</a> — 🇩🇴 🇺🇸
+    </footer>
+  </body>
+</html>

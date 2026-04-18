@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { externalPosts, projects, siteDescription, siteTitle, talks } from '../lib/siteData';
+import { formatPostDate, getPostUrl, getPublishedPosts } from '../lib/posts';
+
+const localPosts = (await getPublishedPosts()).slice(0, 6);
+const featuredPosts = [
+  ...externalPosts.map((post) => ({
+    href: post.href,
+    title: post.title,
+    date: new Date(`${post.date}T00:00:00Z`),
+  })),
+  ...localPosts.map((post) => ({
+    href: getPostUrl(post.post),
+    title: post.title,
+    date: post.date,
+  })),
+].sort((a, b) => b.date.getTime() - a.date.getTime());
+
+const jsonLd = {
+  '@context': 'http://schema.org/',
+  '@type': 'Person',
+  name: siteTitle,
+  jobTitle: 'Software Engineer',
+  url: 'https://oscaraperez.com/',
+};
+---
+<BaseLayout title={siteTitle} description={siteDescription} navVariant="home">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <section class="anchor" id="about">
+    <h1>About</h1>
+    <div class="section-content">
+      <p>Hi&nbsp;&nbsp;👋🏽</p>
+      <p>
+        I am a Software Engineer in the northeast United States. I enjoy writing code and
+        crafting great products with other humans.
+      </p>
+      <div class="external-links">
+        <div class="external-link">
+          <span class="icon fab fa-github"></span><a href="https://github.com/poscar">github.com/poscar</a>
+        </div>
+        <div class="external-link">
+          <span class="icon fab fa-linkedin-in"></span><a href="https://www.linkedin.com/in/oscrperez">linkedin.com/in/oscrperez</a>
+        </div>
+        <div class="external-link">
+          <span class="icon fab fa-twitter"></span><a href="https://twitter.com/oscrperez">twitter.com/oscrperez</a>
+        </div>
+        <div class="external-link">
+          <span class="icon fab fa-instagram"></span><a href="https://www.instagram.com/oscrperez">instagram.com/oscrperez</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="anchor" id="projects">
+    <h1>Projects</h1>
+    <div class="section-content">
+      {projects.map((project) => (
+        <div class="project">
+          <a href={project.href}>{project.title}</a><br />
+          {project.description}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="anchor" id="posts">
+    <h1>Posts</h1>
+    <div class="section-content">
+      {featuredPosts.map((post) => (
+        <div class="post">
+          <span>{formatPostDate(post.date)}</span> &raquo;
+          <a href={post.href}>{post.title}</a>
+        </div>
+      ))}
+      <div class="post">
+        <a href="/posts.html">Browse all posts</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="anchor" id="talks">
+    <h1>Talks</h1>
+    <div class="section-content">
+      {talks.map((talk) => (
+        <div class="talk">
+          <span>{formatPostDate(new Date(`${talk.date}T00:00:00Z`))}</span> &raquo;
+          <a href={talk.href}>{talk.title}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

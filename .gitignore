@@ -1,2 +1,7 @@
 _site
-.DS_STORE
+.DS_Store
+.astro
+.bundle
+dist
+node_modules
+vendor
