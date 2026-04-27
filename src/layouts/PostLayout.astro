@@ -13,7 +13,7 @@ const { title, date } = Astro.props;
   <div class="container">
     <div class="row">
       <div class="site">
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         <p class="meta">{formatPostDate(date)} by Oscar A. Perez</p>
         <div class="post">
           <slot />

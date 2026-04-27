@@ -49,31 +49,31 @@ It should be easy enough to force static build during the configuration step to 
 
 In order to get everything working I had to use gcc from [MacPorts](http://www.macports.org/), modify the configuration options, and relocate `.dylib` files so that the linker didn't find them. Steps were as follows:
 
-### Step 1: Install gcc from MacPorts
+## Step 1: Install gcc from MacPorts
 
 ```sh
 $ sudo ports install gcc48
 ```
 
-### Step 2: Install Libav dependencies if you haven't done so already
+## Step 2: Install Libav dependencies if you haven't done so already
 
 ```sh
 $ sudo port install yasm zlib bzip2 faac lame speex libogg libvorbis libtheora libvpx x264 XviD openjpeg15 opencore-amr freetype
 ```
 
-### Step 3: Configure Libav
+## Step 3: Configure Libav
 
 ```sh
 $ ./configure --enable-gpl --enable-libx264 --enable-libxvid --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-nonfree --enable-libmp3lame --enable-libspeex --enable-libvorbis --enable-libtheora --enable-libvpx --enable-libopenjpeg --enable-libfreetype --enable-doc --enable-static --disable-shared --prefix=BUILD/ --extra-cflags="/opt/local/lib/*.a" --extra-ldflags="-static-libgcc /opt/local/lib/*.a" --cc=/opt/local/bin/gcc-mp-4.8
 ```
 
-### Step 4: Build Libav
+## Step 4: Build Libav
 
 ```sh
 $ make && make install
 ```
 
-### Step 5: Verify linking
+## Step 5: Verify linking
 
 ```sh
 $ otool -L BUILD/avconv
@@ -100,7 +100,7 @@ This will show that the binaries are still being linked against dynamic librarie
 /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
 ```
 
-### Step 6: Temporarily move the third-party `.dylib` files
+## Step 6: Temporarily move the third-party `.dylib` files
 
 We need to move out the third party `.dylib` files from their locations so that the linker doesn't pick them up. Don't forget to move them back once you're done:
 
@@ -109,7 +109,7 @@ $ sudo mkdir /sharedlibs
 $ sudo mv /opt/local/lib/libxvidcore.*.dylib /opt/local/lib/libx264.*.dylib /opt/local/lib/libvorbisenc.*.dylib /opt/local/lib/libvorbis.*.dylib /opt/local/lib/libogg.*.dylib /opt/local/lib/libtheoraenc.*.dylib /opt/local/lib/libtheoradec.*.dylib /opt/local/lib/libspeex.*.dylib /opt/local/lib/libopenjpeg.*.dylib /opt/local/lib/libopencore-amrwb.*.dylib /opt/local/lib/libopencore-amrnb.*.dylib /opt/local/lib/libmp3lame.*.dylib /opt/local/lib/libfreetype.*.dylib /opt/local/lib/libbz2.*.dylib /opt/local/lib/libz.*.dylib /sharedlibs/
 ```
 
-### Step 7: Repeat steps 3, 4, and 5
+## Step 7: Repeat steps 3, 4, and 5
 
 The `otool` output should no longer contain third party `.dylib` dependencies:
 

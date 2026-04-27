@@ -16,11 +16,11 @@ meta:
   style="display: block; margin: 0 auto;"
 />
 
-### What is Google AMP?
+## What is Google AMP?
 
 Google’s Accelerated Mobile Pages are a set of performance focused restrictions and limitations on HTML, CSS, and JavaScript that maximize performance and allow Google to distribute optimized content using their CDN. In a nutshell, AMP enforces the usage of AMP web components in place of certain HTML tags, restricts CSS selectors that can negatively impact performance, and forbids the usage of non AMP JavaScript outside sandboxed iframes. To learn more about the AMP format, how it works, and how it fits into Google search, take a look at the [official overview](https://www.ampproject.org/learn/overview/) and [technical description](https://www.ampproject.org/learn/about-how/).
 
-### Why do we publish on AMP?
+## Why do we publish on AMP?
 
 Condé Nast is one of the world’s most prestigious publishers. You may recognize some of our brands which include Ars Technica, Bon Appétit, Golf Digest, GQ, Pitchfork, The New Yorker, Vanity Fair, Vogue, Wired, and [others](http://www.condenast.com/brands/). As a publisher, implementing AMP was a no-brainer. AMP delivers many benefits in terms of performance, consistency, and experience for our mobile users. Users arriving from Google undergo an uninterrupted flow from search into our content. AMP content loads quickly thanks to Google’s CDN and AMP HTML enforced performance guidelines. The AMP Layout System ensures a great reading experience by preventing pages from jumping around as third-party content loads. Our regular sites are not by any means slow, we constantly beat our competitors’ load and render times, but there are certain performance guarantees that Google can deliver to their users (e.g. prefetching) when content is on their CDN.
 
@@ -28,7 +28,7 @@ Let’s take a step back and think about what incentivizes us as a publisher. To
 
 We went live with AMP on Vanity Fair a little over a year ago. Post-launch, the traffic and search rank results were very positive: click through rate from Google search went from 5.9% (Regular) to 10.3% (AMP), and average search position went from 5.9 (Regular) to 1.7 (AMP). Since then, we have deployed AMP across fifteen of our brands and we have been very pleased with the results. Today, AMP accounts for 79% of our mobile search traffic and 36% of our total mobile visits. We were able to scale our AMP implementation at Condé Nast from one to fifteen brands with minimal disruption and engineering effort from our brands.
 
-### How have we implemented AMP?
+## How have we implemented AMP?
 
 Our brand’s AMP content gets discovered by having the regular page include a `link rel="amphtml"` tag in their head section pointing to the URL for the AMP version of the page. In our architecture, we proxy traffic for AMP URLs to our internal AMP service which is in charge of generating the AMP version of the requested content. The following diagram is an overview of our content creation and AMP distribution architecture:
 
@@ -50,7 +50,7 @@ At Condé Nast, our tech stack uses Node.js and React for most of our brands’ 
 
 Ensuring that brands maintain their look and feel when served over AMP was an important priority when creating the AMP service. The AMP service enables this by allowing brands to provide their own configuration and their own [Sass](http://sass-lang.com/) files that override our sane defaults. If provided, the configuration and SCSS files control the output AMP HTML markup and CSS respectively. Through this approach, brands are able to toggle features and customize their design. In the future, we will take further advantage of React components extensibility to allow much deeper customization of brands’ AMP HTML markup output. Having a service that’s able to do this for all of our brands has proven very valuable and drastically reduced duplication of effort. To start serving AMP traffic, a brand just needs to add a single configuration file and modify their Fastly VCL configuration. As we’ve grown the feature set of our AMP implementation and onboarded more brands, this architecture has proven to be a very scalable solution.
 
-### What did we learn?
+## What did we learn?
 
 Our centralized content management system and service-oriented architecture makes it nearly effortless to onboard new brands onto AMP. This wasn’t always the case. When we onboarded our first brand we were not using a service architecture, instead we had a plugin architecture where each brand had to depend on the AMP plugin. This plugin architecture resulted in duplication of code as we onboarded other brands, it also made it challenging to roll out new plugin versions across all brands. These problems went away when we switched to the shared AMP service. The power and scalability of a service-oriented architecture have been clear. The AMP service validates the use of cross-brand shared services throughout Condé Nast. Furthermore, the benefits of having our data stored in a common format (Copilot Markdown) for all our brands, with shared tooling, APIs, and effort have never been more evident.
 
